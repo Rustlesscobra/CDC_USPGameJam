@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour
     public Vector2 movementDirection;
     public float movementSpeed;
     public Rigidbody2D rb;
+    public Animator animator;
+
     void FixedUpdate()
     {
         ProcessInput();
         Move();
+        Animate();
     }
     void ProcessInput() 
     {
@@ -23,5 +26,11 @@ public class PlayerController : MonoBehaviour
     void Move ()
     {
         rb.velocity = movementDirection * movementSpeed * PLAYER_BASE_SPEED;
+    }
+
+    void Animate ()
+    {
+        animator.SetFloat("Horizontal", movementDirection.x);
+        animator.SetFloat("Vertical", movementDirection.y);
     }
 }
