@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
         ProcessInput();
         Move();
         Animate();
+        
     }
     void ProcessInput() 
     {
@@ -30,7 +31,13 @@ public class PlayerController : MonoBehaviour
 
     void Animate ()
     {
-        animator.SetFloat("Horizontal", movementDirection.x);
-        animator.SetFloat("Vertical", movementDirection.y);
+        if (movementDirection != Vector2.zero)
+        {
+            animator.SetFloat("Horizontal", movementDirection.x);
+            animator.SetFloat("Vertical", movementDirection.y);
+            bool flipped = movementDirection.x > 0;
+            this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f: 0f, 0f));    
+        }
+        animator.SetFloat("Speed", movementSpeed);
     }
 }
