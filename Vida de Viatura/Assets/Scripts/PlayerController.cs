@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Horizontal", movementDirection.x);
             animator.SetFloat("Vertical", movementDirection.y);
-            bool flipped = movementDirection.x > 0;
+            bool flipped = movementDirection.x < 0;
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f: 0f, 0f));    
         }
         animator.SetFloat("Speed", movementSpeed);
