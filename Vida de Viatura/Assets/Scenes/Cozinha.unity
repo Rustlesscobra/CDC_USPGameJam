@@ -1746,10 +1746,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1426741411}
-  speed: 300
+  speed: 400
   nextWaypointDistance: 3
   maxSpawnDistance: 10
-  maxTargetDistance: 10
+  maxTargetDistance: 20
   enemyGFX: {fileID: 971362484}
   startingPoint: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb60aa06655a1f4084829caedbc0a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PLAYER_BASE_SPEED: 7
+  PLAYER_BASE_SPEED: 9
   movementDirection: {x: 0, y: 0}
   movementSpeed: 0
   rb: {fileID: 1426741409}
