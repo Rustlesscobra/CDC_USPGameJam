@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 165471585}
   - component: {fileID: 165471586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 416235798}
   - component: {fileID: 416235799}
   - component: {fileID: 416235800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 879602064}
   - component: {fileID: 879602063}
   - component: {fileID: 879602062}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tilemap_Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1630,7 +1630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971362484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CheeseGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 1197223523}
   - component: {fileID: 1197223529}
   - component: {fileID: 1197223528}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3795,7 +3795,7 @@ GameObject:
   - component: {fileID: 1426741409}
   - component: {fileID: 1426741413}
   - component: {fileID: 1426741414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4253,7 +4253,7 @@ GameObject:
   - component: {fileID: 2099457438}
   - component: {fileID: 2099457440}
   - component: {fileID: 2099457439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}

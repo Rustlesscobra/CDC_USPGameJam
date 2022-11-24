@@ -33,6 +33,10 @@ public class EnemyAI : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .5f);        
     }
 
+    void Update()
+    {
+        Physics2D.IgnoreLayerCollision(9, 10);
+    }
     void UpdatePath()
     {
         // (transform.position - startingPoint).magnitude >= maxSpawnDistance ||
