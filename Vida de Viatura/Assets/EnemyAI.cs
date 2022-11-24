@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public float maxSpawnDistance = 10f;
+    public float maxTargetDistance = 10f;
 
     Path path;
     int currentWaypoint = 0;
@@ -19,24 +20,31 @@ public class EnemyAI : MonoBehaviour
 
     public Transform enemyGFX;
 
-    // public Vector3 startingPoint;
+    public Vector3 startingPoint;
+    public Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        // startingPoint = transform.position;
+        startingPoint = transform.position;
 
         InvokeRepeating("UpdatePath", 0f, .5f);        
     }
 
     void UpdatePath()
     {
+        // (transform.position - startingPoint).magnitude >= maxSpawnDistance ||
+        if ((target.position - transform.position).magnitude >= maxTargetDistance)
+        {
+            // pos = Vector3.MoveTowards(transform.position, startingPoint, speed * Time.deltaTime);
+            // rb.MovePosition(pos);  
+            BackToStart(); 
+        }
+            
         
-        if (seeker.IsDone())
-            // if ((transform.position - startingPoint).magnitude > maxSpawnDistance)
-            //     seeker.StartPath(rb.position, startingPoint, OnPathComplete);
+        else if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
@@ -47,6 +55,11 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+
+    void BackToStart()
+    {
+        seeker.StartPath(rb.position, startingPoint, OnPathComplete);
     }
 
     
