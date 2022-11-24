@@ -39,11 +39,8 @@ public class EnemyAI : MonoBehaviour
     }
     void UpdatePath()
     {
-        // (transform.position - startingPoint).magnitude >= maxSpawnDistance ||
         if ((target.position - transform.position).magnitude >= maxTargetDistance)
-        {
-            // pos = Vector3.MoveTowards(transform.position, startingPoint, speed * Time.deltaTime);
-            // rb.MovePosition(pos);  
+        {  
             BackToStart(); 
         }
             
@@ -104,5 +101,10 @@ public class EnemyAI : MonoBehaviour
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
 
+        if (direction != Vector2.zero)
+        {
+            bool flipped = direction.x > 0;
+            this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f: 0f, 0f));
+        }
     }
 }
