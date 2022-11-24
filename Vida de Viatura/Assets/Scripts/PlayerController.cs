@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public Rigidbody2D rb;
     public Animator animator;
-
+    public Animator transition;
     void FixedUpdate()
     {
         ProcessInput();
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
         Animate();
         
     }
+
     void ProcessInput() 
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -39,5 +41,22 @@ public class PlayerController : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f: 0f, 0f));    
         }
         animator.SetFloat("Speed", movementSpeed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(LoadLevel(1));
+        }
+    }
+    
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(levelIndex);
     }
 }
