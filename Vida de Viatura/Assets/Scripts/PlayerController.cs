@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameOverScreen GameOverScreen; // vo comenta onde mexi so pra sla fica mais visivel
+
     public float PLAYER_BASE_SPEED = 1.0f;
     public Vector2 movementDirection;
     public float movementSpeed;
@@ -17,6 +19,11 @@ public class PlayerController : MonoBehaviour
         Move();
         Animate();
         
+    }
+
+    public void GameOver() 
+    {
+        GameOverScreen.Setup();
     }
 
     void ProcessInput() 
