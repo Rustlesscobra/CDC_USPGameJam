@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class win : MonoBehaviour
 {
     public Animator transition;
+    public float transitionTime;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(LoadLevel(2));
+            StartCoroutine(LoadLevel(3));
         }
     }
 
@@ -19,7 +20,7 @@ public class win : MonoBehaviour
     {
         transition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
     }

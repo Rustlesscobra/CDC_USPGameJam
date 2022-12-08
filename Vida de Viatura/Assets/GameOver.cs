@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+// pelo amor de deus alguem testa essa desgrasa (n consigo)
+public class GameOver : MonoBehaviour
 {
-
-    public Animator transition;
+   public Animator transition;
     public float transitionTime = 1f;
     public int numberOfScenes;
 

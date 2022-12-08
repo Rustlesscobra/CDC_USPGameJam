@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameOverScreen GameOverScreen; // vo comenta onde mexi so pra sla fica mais visivel
-
+   
+    public float transitionTime = 1.0f;
     public float PLAYER_BASE_SPEED = 1.0f;
     public Vector2 movementDirection;
     public float movementSpeed;
@@ -21,10 +21,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void GameOver() 
-    {
-        GameOverScreen.Setup();
-    }
+    //public void GameOver() 
+    //{
+    //    GameOverScreen.Setup();
+    //}
 
     void ProcessInput() 
     {
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(LoadLevel(1));
+            StartCoroutine(LoadLevel(2));
         }
     }
     
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         transition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
     }
